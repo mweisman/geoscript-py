@@ -106,7 +106,7 @@ public class CollectionDelegatingFeatureSource<T extends FeatureType, F extends 
 
         
         //calculate manually based on filter
-        SimpleFeatureIterator it = 
+        FilteringFeatureIterator it = 
             new FilteringFeatureIterator((SimpleFeatureIterator) collection.features(), query.getFilter());
 
         //TODO: fix this casting
@@ -132,7 +132,7 @@ public class CollectionDelegatingFeatureSource<T extends FeatureType, F extends 
             return collection.size();
         }
 
-        SimpleFeatureIterator it = 
+        FilteringFeatureIterator it = 
             new FilteringFeatureIterator((SimpleFeatureIterator) collection.features(), query.getFilter());
         int count = 0;
         try {
